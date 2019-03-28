@@ -6,68 +6,57 @@ using System.Threading.Tasks;
 
 namespace InheritanceProtecionModifiers
 {
+    
     //Type of Techonology to confirgure
-    public class Computer
+    public abstract class Computer
     {
-    }
+            //Setup Configuration variables
+        protected String _TechnologyChoosen = "Computer";
+        protected String _Brand;
+        protected double _Version;
+        protected double _Budget;
 
-    //Choose the type of pc to Configure
-    public class PC : Computer
-    {
-        protected String Brand;
-    }
-
-    public class Mac : Computer
-    {
-        protected String Brand;
-    }
-
-    //Choose operating system
-
-    public class Windows : PC
-    {
-        protected Decimal Version;
-    }
-
-    public class Unix : Mac
-    {
-        protected Decimal Version;
-    }
+            //Create a string to be password to the PcBuild Class
+        protected string BuildConfigurationString;
 
 
-    public class OSX : Mac
-    {
-        protected Decimal Version;
-    }
 
-    //After the user has picked its base  platforms we can choose 
-    //The different hardware options for budget.
-    public class hardware : Windows 
-    {
-        protected Decimal smallCost;
-        protected Decimal mediumCost;
-        protected Decimal largeCost;
-
-        
     }
 
     // Combines all information for processing and printing the order 
-    // to screen
-    public class BuildPc : hardware
+    // to screen for a PC build
+    public class PcBuild : Computer
     {
+        protected string ComputerType = "PC";
+        public void ConfigurationBuildAdd(string SavedConfigText)
+        {
+            BuildConfigurationString = SavedConfigText;
+        }
 
 
         //Prints the entire Configuration to screen
         public void ConfigfurationPrint()
         {
-
+            System.Windows.Forms.MessageBox.Show(BuildConfigurationString);
         }
 
         //Notifies the user of the Current status of their order
         public void CurrentStatus()
         {
-
+            if (BuildConfigurationString != "")
+            {
+                System.Windows.Forms.MessageBox.Show("Your order " + ComputerType + " has been received and is currently being shipped!");
+            }
+            else {
+                System.Windows.Forms.MessageBox.Show("We are still waiting on your " + ComputerType + " parts selection");
+            }
+            
         }
+    }
+
+    public class MacBuild : PcBuild
+    {
+         protected new string ComputerType = "Mac";
     }
 
 
