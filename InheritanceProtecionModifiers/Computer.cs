@@ -45,7 +45,7 @@ namespace InheritanceProtecionModifiers
         {
             if (BuildConfigurationString != "")
             {
-                System.Windows.Forms.MessageBox.Show("Your order " + ComputerType + " has been received and is currently being shipped!");
+                System.Windows.Forms.MessageBox.Show("Your " + ComputerType + " order has been received and is currently being shipped!");
             }
             else {
                 System.Windows.Forms.MessageBox.Show("We are still waiting on your " + ComputerType + " parts selection");
