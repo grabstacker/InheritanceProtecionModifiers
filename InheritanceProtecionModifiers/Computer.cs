@@ -16,7 +16,7 @@ namespace InheritanceProtecionModifiers
         protected double _Version;
         protected double _Budget;
 
-            //Create a string to be password to the PcBuild Class
+            //Create a string used to keep track of the Computer build config
         protected string BuildConfigurationString;
 
 
